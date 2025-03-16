@@ -1,5 +1,7 @@
-# @use-barcode-scanner/components
+# @react-barcode-scanner/components
 
-A component (and perhaps later multiple components) which use the [@use-barcode-scanner/hooks](https://github.com/j5bot/use-barcode-scanner-hooks) hooks to drive a webcam barcode scanner component.
+A component (and perhaps later multiple components) which use the [@react-barcode-scanner/hooks]
+(https://github.com/react-barcode-scanner/hooks) hooks to drive a webcam 
+barcode scanner component.
 
-Storybook stories for the repo are viewable at https://jonathancook.site/use-barcode-scanner-components/
+Storybook stories for the repo are viewable at https://react-barcode-scanner.github.io/components
