@@ -1826,10 +1826,10 @@
     schema-utils "^4.2.0"
     source-map "^0.7.3"
 
-"@react-barcode-scanner/hooks@0.0.11-alpha":
-  version "0.0.11-alpha"
-  resolved "https://registry.yarnpkg.com/@react-barcode-scanner/hooks/-/hooks-0.0.11-alpha.tgz#379aa166e520806656e1325ae9e9d7c6ef3d23d0"
-  integrity sha512-TPVmqf6hNw/uQ1nSashrWBZ8EEX8jAZurKIbKAzkOWib2D+Gpg3FfTLOleRuj1gyxCJwaq5gVFXWvFFL0jUkgA==
+"@react-barcode-scanner/hooks@0.0.16-alpha":
+  version "0.0.16-alpha"
+  resolved "https://registry.yarnpkg.com/@react-barcode-scanner/hooks/-/hooks-0.0.16-alpha.tgz#ffd60797bd9554f60b0ccd2e35ea8e7c9fc08caa"
+  integrity sha512-H4jK2gwb27AtQaeon7OHvDe2+bXhGGkulZDBgPejfAsfiyhWEAMHlho81U8h6HdzOZdE19BqvsdsyhQyTTRsRA==
   dependencies:
     "@undecaf/barcode-detector-polyfill" "^0.9.13"
 
