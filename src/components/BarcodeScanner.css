@@ -11,20 +11,26 @@
 
     --video-blur: 3px;
 
-    --video-element-width: calc(
-            var(--assume-video-width) - var(--video-blur) * 2
-    );
-    --video-element-height: calc(
-            var(--assume-video-height) - var(--video-blur) * 2
-    );
+    --video-element-width: calc(var(--assume-video-width) - var(--video-blur) * 2);
+    --video-element-height: calc(var(--assume-video-height) - var(--video-blur) * 2);
 
-    --video-element-top: calc((var(--video-crop-height) - var(--video-element-height)) / 2 - var(--video-blur));
-    --video-element-left: calc((var(--video-crop-width) - var(--video-element-width)) / 2 - var(--video-blur));
+    --video-element-top: calc(
+        (var(--video-crop-height) - var(--video-element-height)) / 2 - var(--video-blur)
+    );
+    --video-element-left: calc(
+        (var(--video-crop-width) - var(--video-element-width)) / 2 - var(--video-blur)
+    );
 
     --canvas-element-width: calc(var(--assume-video-width) / var(--assume-zoom));
     --canvas-element-height: calc(var(--assume-video-height) / var(--assume-zoom));
-    --canvas-element-left: calc((var(--video-crop-width) - var(--canvas-element-width)) / var(--assume-zoom) - var(--video-blur));
-    --canvas-element-top: calc((var(--video-crop-height) - var(--canvas-element-height)) / var(--assume-zoom) - var(--video-blur));
+    --canvas-element-left: calc(
+        (var(--video-crop-width) - var(--canvas-element-width)) / var(--assume-zoom) -
+            var(--video-blur)
+    );
+    --canvas-element-top: calc(
+        (var(--video-crop-height) - var(--canvas-element-height)) / var(--assume-zoom) -
+            var(--video-blur)
+    );
 }
 
 .webcam-scanner-preview-box {
@@ -87,6 +93,10 @@
 }
 
 @keyframes scanline {
-    from { top: var(--canvas-element-top); }
-    to { top: calc(var(--canvas-element-top) + var(--canvas-element-height)); }
+    from {
+        top: var(--canvas-element-top);
+    }
+    to {
+        top: calc(var(--canvas-element-top) + var(--canvas-element-height));
+    }
 }

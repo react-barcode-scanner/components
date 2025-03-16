@@ -8,7 +8,7 @@ import postcss from 'rollup-plugin-postcss';
 
 import packageJson from './package.json' with { type: 'json' };
 
-const makeDefaultConfig = (hooksOrComponents) => {
+const makeDefaultConfig = hooksOrComponents => {
     return [
         {
             input: `src/${hooksOrComponents}/index.ts`,
@@ -28,7 +28,7 @@ const makeDefaultConfig = (hooksOrComponents) => {
                     assetFileNames: '[name][extname]',
                 },
             ],
-            external: [ 'react', 'react-dom' ],
+            external: ['react', 'react-dom'],
             plugins: [
                 resolve(),
                 commonjs(),
@@ -45,15 +45,10 @@ const makeDefaultConfig = (hooksOrComponents) => {
         {
             input: `dist/esm/index.d.ts`,
             output: [{ file: `dist/index.d.ts`, format: 'esm' }],
-            external: [ 'react', 'react-dom', './BarcodeScanner.css' ],
-            plugins: [
-                dts(),
-                excludeDependenciesFromBundle({ peerDependencies: true }),
-            ],
-        }
+            external: ['react', 'react-dom', './BarcodeScanner.css'],
+            plugins: [dts(), excludeDependenciesFromBundle({ peerDependencies: true })],
+        },
     ];
 };
 
-export default [
-    ...makeDefaultConfig('components'),
-];
+export default [...makeDefaultConfig('components')];

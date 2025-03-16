@@ -46,23 +46,16 @@ export const BarcodeScanner = (props: BarcodeScannerProps) => {
         '--video-blur': `${blur}px`,
     } as CSSProperties;
 
-    const {
-        canvasRef,
-        hasPermission,
-        webcamVideoRef,
-    } = useBarcodeScanner({
+    const { canvasRef, hasPermission, webcamVideoRef } = useBarcodeScanner({
         onDevices,
         onScan,
         shouldPlay: false,
         zoom,
     });
 
-    return (hasPermission && devices?.length ?
+    return hasPermission && devices?.length ? (
         <>
-            <div
-                className="webcam-scanner-preview-box"
-                style={webcamScannerPreviewBoxStyle}
-            >
+            <div className="webcam-scanner-preview-box" style={webcamScannerPreviewBoxStyle}>
                 <div className="webcam-scanner-preview">
                     <video
                         ref={webcamVideoRef}
@@ -76,5 +69,5 @@ export const BarcodeScanner = (props: BarcodeScannerProps) => {
                 </div>
             </div>
         </>
-    : null);
+    ) : null;
 };

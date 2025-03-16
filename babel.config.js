@@ -2,18 +2,18 @@
 // Read more: https://github.com/storybookjs/storybook/issues/22357
 
 module.exports = {
-    sourceType: "unambiguous",
+    sourceType: 'unambiguous',
     presets: [
         [
-            "@babel/preset-env",
+            '@babel/preset-env',
             {
                 targets: {
                     chrome: 130,
                 },
             },
         ],
-        "@babel/preset-typescript",
-        "@babel/preset-react",
+        '@babel/preset-typescript',
+        '@babel/preset-react',
     ],
     plugins: [],
 };
