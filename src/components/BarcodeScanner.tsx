@@ -53,7 +53,7 @@ export const BarcodeScanner = (props: BarcodeScannerProps) => {
         zoom,
     });
 
-    return hasPermission && devices?.length ? (
+    return hasPermission && (
         <>
             <div className="webcam-scanner-preview-box" style={webcamScannerPreviewBoxStyle}>
                 <div className="webcam-scanner-preview">
@@ -69,5 +69,5 @@ export const BarcodeScanner = (props: BarcodeScannerProps) => {
                 </div>
             </div>
         </>
-    ) : null;
+    );
 };
