@@ -1,18 +1,66 @@
+@property --video-border {
+    syntax: "*";
+    inherits: true;
+    initial-value: none;
+}
+
+@property --scanline {
+    syntax: "*";
+    inherits: true;
+    initial-value: none;
+}
+
+@property --raw-video-width {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 640px;
+}
+
+@property --raw-video-height {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 480px;
+}
+
+@property --raw-zoom {
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 2;
+}
+
+@property --video-blur {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 3px;
+}
+
+@property --video-crop-width {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 640px;
+}
+
+@property --video-crop-height {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 640px;
+}
+
+@property --canvas-element-width {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 320px;
+}
+
+@property --canvas-element-height {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 240px;
+}
+
 .webcam-scanner-preview-box {
-    --video-border: solid 1px #ccc;
-    --scanline: solid 3px #ff000099;
-
-    --assume-video-width: 640px;
-    --assume-video-height: 480px;
-    --assume-zoom: 2;
-
-    --video-crop-width: 640px;
-    --video-crop-height: 300px;
-
-    --video-blur: 3px;
-
-    --video-element-width: calc(var(--assume-video-width) - var(--video-blur) * 2);
-    --video-element-height: calc(var(--assume-video-height) - var(--video-blur) * 2);
+    --video-element-width: calc(var(--raw-video-width) - var(--video-blur) * 2);
+    --video-element-height: calc(var(--raw-video-height) - var(--video-blur) * 2);
 
     --video-element-top: calc(
         (var(--video-crop-height) - var(--video-element-height)) / 2 - var(--video-blur)
@@ -21,14 +69,12 @@
         (var(--video-crop-width) - var(--video-element-width)) / 2 - var(--video-blur)
     );
 
-    --canvas-element-width: calc(var(--assume-video-width) / var(--assume-zoom));
-    --canvas-element-height: calc(var(--assume-video-height) / var(--assume-zoom));
     --canvas-element-left: calc(
-        (var(--video-crop-width) - var(--canvas-element-width)) / var(--assume-zoom) -
+        (var(--video-crop-width) - var(--canvas-element-width)) / var(--raw-zoom) -
             var(--video-blur)
     );
     --canvas-element-top: calc(
-        (var(--video-crop-height) - var(--canvas-element-height)) / var(--assume-zoom) -
+        (var(--video-crop-height) - var(--canvas-element-height)) / var(--raw-zoom) -
             var(--video-blur)
     );
 }
@@ -58,7 +104,7 @@
 /*    overflow: visible;*/
 /*}*/
 /*.webcam-scanner-preview > canvas {*/
-/*    left: var(--assume-video-width);*/
+/*    left: var(--raw-video-width);*/
 /*}*/
 /*.webcam-scanner-preview > .match-canvas {*/
 /*    border: solid 1px white;*/

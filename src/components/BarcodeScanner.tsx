@@ -1,4 +1,4 @@
-import React, { CSSProperties } from 'react';
+import React, { CSSProperties, useEffect, useRef } from 'react';
 import { useBarcodeScanner } from '@react-barcode-scanner/hooks';
 
 import './BarcodeScanner.css';
@@ -11,7 +11,7 @@ export type BarcodeScannerProps = {
     onDevices?: (devices: MediaDeviceInfo[]) => void;
     onScan: (code: string) => void;
     preferDeviceLabelMatch?: RegExp;
-    settings?: Record<string, boolean | RegExp>;
+    settings?: Record<string, string | RegExp>;
     videoHeight?: number;
     videoWidth?: number;
     videoCropHeight?: number;
@@ -25,10 +25,9 @@ export const BarcodeScanner = (props: BarcodeScannerProps) => {
         autoStart = true,
         canvasHeight = 240,
         canvasWidth = 320,
-        devices,
         onDevices,
         onScan,
-        settings,
+        settings = {},
         videoHeight = 480,
         videoWidth = 640,
         videoCropHeight = 300,
@@ -37,14 +36,31 @@ export const BarcodeScanner = (props: BarcodeScannerProps) => {
         blur = 0,
     } = props;
 
-    const webcamScannerPreviewBoxStyle = {
-        '--assume-video-width': `${videoWidth}px`,
-        '--assume-video-height': `${videoHeight}px`,
+    const { scanLine, videoBorder } = settings;
+
+    const webcamScannerPreviewStyle = {
+        '--scanline': scanLine,
+        '--video-border': videoBorder,
+        '--raw-video-width': `${videoWidth}px`,
+        '--raw-video-height': `${videoHeight}px`,
+        '--canvas-element-width': `${canvasWidth}px`,
+        '--canvas-element-height': `${canvasHeight}px`,
         '--video-crop-width': `${videoCropWidth}px`,
         '--video-crop-height': `${videoCropHeight}px`,
-        '--assume-zoom': zoom,
+        '--raw-zoom': zoom,
         '--video-blur': `${blur}px`,
     } as CSSProperties;
+
+    const boxRef = useRef<HTMLDivElement>();
+
+    useEffect(() => {
+        if (!boxRef.current) {
+            return;
+        }
+        Object.entries(webcamScannerPreviewStyle).forEach(([key, value]) => {
+            boxRef.current?.style.setProperty(key, value);
+        });
+    }, [boxRef.current]);
 
     const { canvasRef, hasPermission, webcamVideoRef } = useBarcodeScanner({
         onDevices,
@@ -53,9 +69,10 @@ export const BarcodeScanner = (props: BarcodeScannerProps) => {
         zoom,
     });
 
-    return hasPermission && (
+
+    return hasPermission ? (
         <>
-            <div className="webcam-scanner-preview-box" style={webcamScannerPreviewBoxStyle}>
+            <div ref={boxRef} className="webcam-scanner-preview-box">
                 <div className="webcam-scanner-preview">
                     <video
                         ref={webcamVideoRef}
@@ -65,9 +82,9 @@ export const BarcodeScanner = (props: BarcodeScannerProps) => {
                         playsInline={true}
                     />
                     <canvas ref={canvasRef} width={canvasWidth} height={canvasHeight} />
-                    {settings?.scanLine && <div className={'scanline'}>-</div>}
+                    {scanLine && <div className={'scanline'}>-</div>}
                 </div>
             </div>
         </>
-    );
+    ) : null;
 };

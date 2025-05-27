@@ -4,13 +4,13 @@ import { useState } from 'react';
 import { BarcodeScanner } from '../../components';
 import { BarcodeScannerProps } from '../../components';
 
-type ExtendedProps = BarcodeScannerProps & { scanLine?: boolean };
+type ExtendedProps = BarcodeScannerProps & { scanLine?: string };
 
 const BarcodeScannerStories = (props: ExtendedProps) => {
     const {
-        scanLine = false,
-        canvasHeight = 240,
-        canvasWidth = 320,
+        scanLine = 'none',
+        canvasHeight = 480,
+        canvasWidth = 640,
         videoHeight = 480,
         videoWidth = 640,
         videoCropHeight,
@@ -60,11 +60,11 @@ type Story = StoryObj<typeof BarcodeScannerStories>;
 
 export const Primary: Story = {
     args: {
-        scanLine: false,
+        scanLine: 'solid 3px red',
         zoom: 2,
         blur: 3,
-        canvasHeight: 240,
-        canvasWidth: 320,
+        canvasHeight: 480,
+        canvasWidth: 640,
         videoHeight: 480,
         videoWidth: 640,
         videoCropHeight: 300,
