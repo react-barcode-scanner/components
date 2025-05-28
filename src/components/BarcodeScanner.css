@@ -10,19 +10,19 @@
     initial-value: none;
 }
 
-@property --raw-video-width {
+@property --video-width {
     syntax: "<length>";
     inherits: true;
     initial-value: 640px;
 }
 
-@property --raw-video-height {
+@property --video-height {
     syntax: "<length>";
     inherits: true;
     initial-value: 480px;
 }
 
-@property --raw-zoom {
+@property --zoom {
     syntax: "<number>";
     inherits: true;
     initial-value: 2;
@@ -58,40 +58,36 @@
     initial-value: 240px;
 }
 
-.webcam-scanner-preview-box {
-    --video-element-width: calc(var(--raw-video-width) - var(--video-blur) * 2);
-    --video-element-height: calc(var(--raw-video-height) - var(--video-blur) * 2);
+.react-barcode-scanner-container {
+    --video-element-width: calc(var(--video-width) - var(--video-blur) * 2);
+    --video-element-height: calc(var(--video-height) - var(--video-blur) * 2);
 
     --video-element-top: calc(
-        (var(--video-crop-height) - var(--video-element-height)) / 2 - var(--video-blur)
+            (var(--video-crop-height) - var(--video-element-height)) / 2 - var(--video-blur)
     );
     --video-element-left: calc(
-        (var(--video-crop-width) - var(--video-element-width)) / 2 - var(--video-blur)
+            (var(--video-crop-width) - var(--video-element-width)) / 2 - var(--video-blur)
     );
 
     --canvas-element-left: calc(
-        (var(--video-crop-width) - var(--canvas-element-width)) / var(--raw-zoom) -
+            (var(--video-crop-width) - var(--canvas-element-width)) / var(--zoom) -
             var(--video-blur)
     );
     --canvas-element-top: calc(
-        (var(--video-crop-height) - var(--canvas-element-height)) / var(--raw-zoom) -
+            (var(--video-crop-height) - var(--canvas-element-height)) / var(--zoom) -
             var(--video-blur)
     );
-}
 
-.webcam-scanner-preview-box {
     display: flex;
     justify-content: center;
-}
 
-.webcam-scanner-preview {
     border: var(--video-border);
     position: relative;
     height: var(--video-crop-height);
     width: var(--video-crop-width);
     overflow: hidden;
 }
-.webcam-scanner-preview > canvas {
+.react-barcode-scanner-container > canvas {
     position: absolute;
     left: var(--canvas-element-left);
     top: var(--canvas-element-top);
@@ -99,23 +95,7 @@
     height: var(--canvas-element-height);
 }
 
-/* for confirming that the zoom center is correct */
-/*.webcam-scanner-preview {*/
-/*    overflow: visible;*/
-/*}*/
-/*.webcam-scanner-preview > canvas {*/
-/*    left: var(--raw-video-width);*/
-/*}*/
-/*.webcam-scanner-preview > .match-canvas {*/
-/*    border: solid 1px white;*/
-/*    position: absolute;*/
-/*    width: 160px;*/
-/*    height: 120px;*/
-/*    left: calc((640px / 2 - 320px / 4) - 3px);*/
-/*    top: calc((480px / 2 - 240px / 4) - 3px);*/
-/*}*/
-
-.webcam-scanner-preview > video {
+.react-barcode-scanner-container > video {
     position: absolute;
     top: var(--video-element-top);
     left: var(--video-element-left);

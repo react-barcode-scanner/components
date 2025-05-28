@@ -41,26 +41,26 @@ export const BarcodeScanner = (props: BarcodeScannerProps) => {
     const webcamScannerPreviewStyle = {
         '--scanline': scanLine,
         '--video-border': videoBorder,
-        '--raw-video-width': `${videoWidth}px`,
-        '--raw-video-height': `${videoHeight}px`,
+        '--video-width': `${videoWidth}px`,
+        '--video-height': `${videoHeight}px`,
         '--canvas-element-width': `${canvasWidth}px`,
         '--canvas-element-height': `${canvasHeight}px`,
         '--video-crop-width': `${videoCropWidth}px`,
         '--video-crop-height': `${videoCropHeight}px`,
-        '--raw-zoom': zoom,
+        '--zoom': zoom,
         '--video-blur': `${blur}px`,
     } as CSSProperties;
 
-    const boxRef = useRef<HTMLDivElement>();
+    const containerRef = useRef<HTMLDivElement>();
 
     useEffect(() => {
-        if (!boxRef.current) {
+        if (!containerRef.current) {
             return;
         }
         Object.entries(webcamScannerPreviewStyle).forEach(([key, value]) => {
-            boxRef.current?.style.setProperty(key, value);
+            containerRef.current?.style.setProperty(key, value);
         });
-    }, [boxRef.current]);
+    }, [containerRef.current]);
 
     const { canvasRef, hasPermission, webcamVideoRef } = useBarcodeScanner({
         onDevices,
@@ -71,20 +71,16 @@ export const BarcodeScanner = (props: BarcodeScannerProps) => {
 
 
     return hasPermission ? (
-        <>
-            <div ref={boxRef} className="webcam-scanner-preview-box">
-                <div className="webcam-scanner-preview">
-                    <video
-                        ref={webcamVideoRef}
-                        width={videoWidth}
-                        height={videoHeight}
-                        autoPlay={autoStart}
-                        playsInline={true}
-                    />
-                    <canvas ref={canvasRef} width={canvasWidth} height={canvasHeight} />
-                    {scanLine && <div className={'scanline'}>-</div>}
-                </div>
-            </div>
-        </>
+        <div ref={containerRef} className="react-barcode-scanner-container">
+            <video
+                ref={webcamVideoRef}
+                width={videoWidth}
+                height={videoHeight}
+                autoPlay={autoStart}
+                playsInline={true}
+            />
+            <canvas ref={canvasRef} width={canvasWidth} height={canvasHeight} />
+            {scanLine && <div className={'scanline'}>-</div>}
+        </div>
     ) : null;
 };
