@@ -16,10 +16,10 @@
     ],
     "types": "dist/index.d.ts",
     "dependencies": {
-        "@react-barcode-scanner/hooks": "0.0.27-alpha"
+        "@react-barcode-scanner/hooks": "0.0.28-alpha"
     },
     "scripts": {
-        "rollup": "rollup -c",
+        "rollup": "rollup -c --interop 'auto'",
         "storybook": "storybook dev -p 6006 --https --ssl-cert ./scripts/localhost.crt --ssl-key ./scripts/localhost.key",
         "build-storybook": "storybook build",
         "deploy-storybook": "yarn build-storybook; node scripts/gh-pages-deploy.js"
@@ -56,9 +56,9 @@
         "@babel/preset-react": "7.26.3",
         "@babel/preset-typescript": "7.26.0",
         "@chromatic-com/storybook": "3.2.6",
-        "@rollup/plugin-commonjs": "^22.0.2",
-        "@rollup/plugin-node-resolve": "^14.1.0",
-        "@rollup/plugin-typescript": "^8.3.3",
+        "@rollup/plugin-commonjs": "28.0.3",
+        "@rollup/plugin-node-resolve": "16.0.1",
+        "@rollup/plugin-typescript": "12.1.2",
         "@storybook/addon-actions": "^8.6.6",
         "@storybook/addon-essentials": "^8.6.6",
         "@storybook/addon-interactions": "^8.6.6",
@@ -79,10 +79,10 @@
         "react-dom": "^18.2.0",
         "react-scripts": "5.0.1",
         "require-from-string": "^2.0.2",
-        "rollup": "4.35.0",
-        "rollup-plugin-dts": "^4.2.2",
-        "rollup-plugin-exclude-dependencies-from-bundle": "^1.1.22",
-        "rollup-plugin-postcss": "^4.0.2",
+        "rollup": "4.41.1",
+        "rollup-plugin-dts": "6.2.1",
+        "rollup-plugin-exclude-dependencies-from-bundle": "1.1.22",
+        "rollup-plugin-postcss": "4.0.2",
         "storybook": "^8.6.6",
         "typescript": "^4.4.2",
         "typescript-plugin-css-modules": "^3.4.0",
