@@ -5,7 +5,7 @@
         "url": "git+https://github.com/react-barcode-scanner/components.git",
         "directory": "packages/@react-barcode-scanner/components"
     },
-    "version": "0.0.31-alpha",
+    "version": "0.0.33-alpha",
     "license": "MIT",
     "private": false,
     "main": "index.js",
