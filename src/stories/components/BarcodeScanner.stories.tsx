@@ -8,6 +8,8 @@ type ExtendedProps = BarcodeScannerProps & { scanLine?: string };
 
 const BarcodeScannerStories = (props: ExtendedProps) => {
     const {
+        animate = true,
+        className,
         scanLine = 'none',
         canvasHeight = 480,
         canvasWidth = 640,
@@ -32,6 +34,8 @@ const BarcodeScannerStories = (props: ExtendedProps) => {
 
     return (
         <BarcodeScanner
+            animate={animate}
+            className={className}
             devices={devices}
             onDevices={onDevices}
             onScan={onScan}
@@ -60,6 +64,8 @@ type Story = StoryObj<typeof BarcodeScannerStories>;
 
 export const Primary: Story = {
     args: {
+        animate: true,
+        className: '',
         scanLine: 'solid 3px red',
         zoom: 2,
         blur: 0,

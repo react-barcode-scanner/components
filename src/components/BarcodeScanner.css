@@ -37,13 +37,13 @@
 @property --video-crop-width {
     syntax: "<length>";
     inherits: true;
-    initial-value: 640px;
+    initial-value: 0;
 }
 
 @property --video-crop-height {
     syntax: "<length>";
     inherits: true;
-    initial-value: 640px;
+    initial-value: 0;
 }
 
 @property --canvas-element-width {
@@ -56,6 +56,15 @@
     syntax: "<length>";
     inherits: true;
     initial-value: 240px;
+}
+
+@keyframes grow-scanner-container {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
 }
 
 .react-barcode-scanner-container {
@@ -83,9 +92,12 @@
 
     border: var(--video-border);
     position: relative;
-    height: var(--video-crop-height);
-    width: var(--video-crop-width);
     overflow: hidden;
+    width: var(--video-crop-width);
+    height: var(--video-crop-height);
+}
+.react-barcode-scanner-container.animate {
+    animation: grow-scanner-container 0.5s linear 1;
 }
 .react-barcode-scanner-container > canvas {
     position: absolute;

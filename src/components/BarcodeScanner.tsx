@@ -4,6 +4,7 @@ import { useBarcodeScanner } from '@react-barcode-scanner/hooks';
 import './BarcodeScanner.css';
 
 export type BarcodeScannerProps = {
+    animate?: boolean;
     autoStart?: boolean;
     blur?: number;
     canvasHeight?: number;
@@ -24,11 +25,12 @@ export type BarcodeScannerProps = {
 
 export const BarcodeScanner = (props: BarcodeScannerProps) => {
     const {
+        animate = true,
         autoStart = true,
         blur = 0,
         canvasHeight = 240,
         canvasWidth = 320,
-        className,
+        className = '',
         onDevices,
         onScan,
         settings = {},
@@ -74,7 +76,11 @@ export const BarcodeScanner = (props: BarcodeScannerProps) => {
     });
 
 
-    return <div ref={containerRef} className={`react-barcode-scanner-container ${className}`}>
+    return <div ref={containerRef} className={`
+            react-barcode-scanner-container
+            ${animate ? 'animate' : ''}
+            ${className}
+        `}>
         {hasPermission ? (
             <>
                 <video
