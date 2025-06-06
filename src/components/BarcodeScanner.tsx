@@ -25,7 +25,7 @@ export type BarcodeScannerProps = {
 
 export const BarcodeScanner = (props: BarcodeScannerProps) => {
     const {
-        animate = true,
+        animate = false,
         autoStart = true,
         blur = 0,
         canvasHeight = 240,
@@ -59,15 +59,6 @@ export const BarcodeScanner = (props: BarcodeScannerProps) => {
 
     const containerRef = useRef<HTMLDivElement>(null);
 
-    useEffect(() => {
-        if (!containerRef.current) {
-            return;
-        }
-        Object.entries(webcamScannerPreviewStyle).forEach(([key, value]) => {
-            containerRef.current?.style.setProperty(key, value);
-        });
-    }, [containerRef.current]);
-
     const { canvasRef, hasPermission, webcamVideoRef } = useBarcodeScanner({
         onDevices,
         onScan,
@@ -75,6 +66,17 @@ export const BarcodeScanner = (props: BarcodeScannerProps) => {
         zoom,
     });
 
+    useEffect(() => {
+        if (!hasPermission || !containerRef.current) {
+            return;
+        }
+        Object.entries(webcamScannerPreviewStyle).forEach(([key, value]) => {
+            containerRef.current?.style.setProperty(key, value);
+        });
+        if (animate) {
+            containerRef.current?.style.setProperty('animation-play-state', 'running');
+        }
+    }, [hasPermission, containerRef.current]);
 
     return <div ref={containerRef} className={`
             react-barcode-scanner-container

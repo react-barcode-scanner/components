@@ -58,11 +58,35 @@
     initial-value: 240px;
 }
 
+@property --video-animation-state {
+    syntax: "<*>";
+    inherits: false;
+    initial-value: paused;
+}
+
+@property --animated-video-width {
+    syntax: "<length>";
+    inherits: false;
+    initial-value: 0;
+}
+
+@property --animated-video-height {
+    syntax: "<length>";
+    inherits: false;
+    initial-value: 0;
+}
+
 @keyframes grow-scanner-container {
     from {
+        --animated-video-width: 0;
+        --animated-video-height: 0;
         transform: scale(0);
     }
     to {
+        --animated-video-width: var(--video-crop-width);
+        --animated-video-height: var(--video-crop-height);
+        width: var(--video-crop-width);
+        height: var(--video-crop-height);
         transform: scale(1);
     }
 }
@@ -97,7 +121,8 @@
     height: var(--video-crop-height);
 }
 .react-barcode-scanner-container.animate {
-    animation: grow-scanner-container 0.5s linear 1;
+    animation: grow-scanner-container 0.4s linear 1;
+    animation-play-state: paused;
 }
 .react-barcode-scanner-container > canvas {
     position: absolute;
