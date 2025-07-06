@@ -5,7 +5,7 @@
         "url": "git+https://github.com/react-barcode-scanner/components.git",
         "directory": "packages/@react-barcode-scanner/components"
     },
-    "version": "0.0.37-beta",
+    "version": "0.0.38-beta",
     "license": "MIT",
     "private": false,
     "main": "index.js",
@@ -16,7 +16,7 @@
     ],
     "types": "dist/index.d.ts",
     "dependencies": {
-        "@react-barcode-scanner/hooks": "0.0.37-beta"
+        "@react-barcode-scanner/hooks": "0.0.38-beta"
     },
     "scripts": {
         "rollup": "rollup -c --interop 'auto'",

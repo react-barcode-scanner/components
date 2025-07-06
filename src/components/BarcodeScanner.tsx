@@ -1,5 +1,5 @@
 import React, { CSSProperties, ReactNode, useEffect, useRef } from 'react';
-import { useBarcodeScanner } from '@react-barcode-scanner/hooks';
+import { BarcodeDetectorOptions, useBarcodeScanner } from '@react-barcode-scanner/hooks';
 
 import './BarcodeScanner.css';
 
@@ -10,6 +10,7 @@ export type BarcodeScannerProps = {
     canvasHeight?: number;
     canvasWidth?: number;
     className?: string;
+    barcodeDetectorOptions?: BarcodeDetectorOptions;
     devices?: MediaDeviceInfo[];
     onDevices?: (devices: MediaDeviceInfo[]) => void;
     onScan: (code: string) => void;
@@ -31,6 +32,7 @@ export const BarcodeScanner = (props: BarcodeScannerProps) => {
         canvasHeight = 240,
         canvasWidth = 320,
         className = '',
+        barcodeDetectorOptions,
         onDevices,
         onScan,
         settings = {},
@@ -62,6 +64,7 @@ export const BarcodeScanner = (props: BarcodeScannerProps) => {
     const { canvasRef, hasPermission, webcamVideoRef } = useBarcodeScanner({
         onDevices,
         onScan,
+        barcodeDetectorOptions,
         shouldPlay: false,
         zoom,
     });
