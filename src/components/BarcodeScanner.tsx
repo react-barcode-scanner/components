@@ -1,5 +1,9 @@
-import React, { CSSProperties, ReactNode, useEffect, useRef } from 'react';
-import { BarcodeDetectorOptions, useBarcodeScanner } from '@react-barcode-scanner/hooks';
+import React, { CSSProperties, ReactNode, useEffect, useMemo, useRef } from 'react';
+import {
+    BarcodeDetectorOptions,
+    DeviceChoiceOptions,
+    useBarcodeScanner
+} from '@react-barcode-scanner/hooks';
 
 import './BarcodeScanner.css';
 
@@ -11,6 +15,7 @@ export type BarcodeScannerProps = {
     canvasWidth?: number;
     className?: string;
     barcodeDetectorOptions?: BarcodeDetectorOptions;
+    deviceChoiceOptions?: DeviceChoiceOptions;
     devices?: MediaDeviceInfo[];
     onDevices?: (devices: MediaDeviceInfo[]) => void;
     onScan: (code: string) => void;
@@ -33,6 +38,7 @@ export const BarcodeScanner = (props: BarcodeScannerProps) => {
         canvasWidth = 320,
         className = '',
         barcodeDetectorOptions,
+        deviceChoiceOptions,
         onDevices,
         onScan,
         settings = {},
@@ -46,25 +52,39 @@ export const BarcodeScanner = (props: BarcodeScannerProps) => {
 
     const { scanLine, videoBorder } = settings;
 
-    const webcamScannerPreviewStyle = {
+    const containerRef = useRef<HTMLDivElement>(null);
+
+    const webcamScannerPreviewStyle = useMemo(() => ({
         '--scanline': scanLine,
         '--video-border': videoBorder,
         '--video-width': `${videoWidth}px`,
         '--video-height': `${videoHeight}px`,
-        '--canvas-element-width': `${canvasWidth}px`,
-        '--canvas-element-height': `${canvasHeight}px`,
+        '--canvas-width': `${canvasWidth}px`,
+        '--canvas-height': `${canvasHeight}px`,
         '--video-crop-width': `${videoCropWidth}px`,
         '--video-crop-height': `${videoCropHeight}px`,
         '--zoom': zoom,
         '--video-blur': `${blur}px`,
-    } as CSSProperties;
-
-    const containerRef = useRef<HTMLDivElement>(null);
+    } as CSSProperties),
+    [
+        containerRef.current,
+        scanLine,
+        videoBorder,
+        videoWidth,
+        videoHeight,
+        canvasWidth,
+        canvasHeight,
+        videoCropWidth,
+        videoCropHeight,
+        zoom,
+        blur,
+    ]);
 
     const { canvasRef, hasPermission, webcamVideoRef } = useBarcodeScanner({
         onDevices,
         onScan,
         barcodeDetectorOptions,
+        deviceChoiceOptions,
         shouldPlay: false,
         zoom,
     });
@@ -79,7 +99,7 @@ export const BarcodeScanner = (props: BarcodeScannerProps) => {
         if (animate) {
             containerRef.current?.style.setProperty('animation-play-state', 'running');
         }
-    }, [hasPermission, containerRef.current]);
+    }, [hasPermission, webcamScannerPreviewStyle, containerRef.current]);
 
     return <div ref={containerRef} className={`
             react-barcode-scanner-container

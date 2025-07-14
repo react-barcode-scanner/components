@@ -16,7 +16,7 @@
     ],
     "types": "dist/index.d.ts",
     "dependencies": {
-        "@react-barcode-scanner/hooks": "0.0.41-alpha"
+        "@react-barcode-scanner/hooks": "0.0.43-alpha"
     },
     "scripts": {
         "rollup": "rollup -c --interop 'auto'",
