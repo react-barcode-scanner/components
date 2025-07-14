@@ -34,8 +34,8 @@ export const BarcodeScanner = (props: BarcodeScannerProps) => {
         animate = false,
         autoStart = true,
         blur = 0,
-        canvasHeight = 240,
-        canvasWidth = 320,
+        canvasHeight = 480,
+        canvasWidth = 640,
         className = '',
         barcodeDetectorOptions,
         deviceChoiceOptions,
@@ -63,7 +63,6 @@ export const BarcodeScanner = (props: BarcodeScannerProps) => {
         '--canvas-height': `${canvasHeight}px`,
         '--video-crop-width': `${videoCropWidth}px`,
         '--video-crop-height': `${videoCropHeight}px`,
-        '--zoom': zoom,
         '--video-blur': `${blur}px`,
     } as CSSProperties),
     [
@@ -76,7 +75,6 @@ export const BarcodeScanner = (props: BarcodeScannerProps) => {
         canvasHeight,
         videoCropWidth,
         videoCropHeight,
-        zoom,
         blur,
     ]);
 
