@@ -1826,10 +1826,10 @@
     schema-utils "^4.2.0"
     source-map "^0.7.3"
 
-"@react-barcode-scanner/hooks@0.0.46-alpha":
-  version "0.0.46-alpha"
-  resolved "https://registry.yarnpkg.com/@react-barcode-scanner/hooks/-/hooks-0.0.46-alpha.tgz#2176322a8fc4e11a003283e2e1bfe1677fb4c448"
-  integrity sha512-Z8Xy0nr7j7DefEfyhcg1osd/GIedD6MHG3KVDe8vHWr5C12yhMTlc8uU9FNaRWtguFTQAnRxUSwAEjYJ6UR9Kg==
+"@react-barcode-scanner/hooks@0.0.51-alpha":
+  version "0.0.51-alpha"
+  resolved "https://registry.yarnpkg.com/@react-barcode-scanner/hooks/-/hooks-0.0.51-alpha.tgz#ac6d02d8919a4b519d9f9ead40abae19f2cef9dd"
+  integrity sha512-QiYC3D/D0d+6UDzoobZykRMC+vma4eo+VkJqnPWD8bKhdWEa/XOpVaDzKRv2zZoN4oSwj1kll3U/1WUbgljo6Q==
   dependencies:
     "@undecaf/barcode-detector-polyfill" "^0.9.13"
 
@@ -3920,9 +3920,9 @@ caniuse-api@^3.0.0:
     lodash.uniq "^4.5.0"
 
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001688, caniuse-lite@^1.0.30001702:
-  version "1.0.30001704"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001704.tgz#6644fe909d924ac3a7125e8a0ab6af95b1f32990"
-  integrity sha512-+L2IgBbV6gXB4ETf0keSvLr7JUrRVbIaB/lrQ1+z8mRcQiisG5k+lG6O4n6Y5q6f5EuNfaYXKgymucphlEXQew==
+  version "1.0.30001736"
+  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001736.tgz"
+  integrity sha512-ImpN5gLEY8gWeqfLUyEF4b7mYWcYoR2Si1VhnrbM4JizRFmfGaAQ12PhNykq6nvI4XvKLrsp8Xde74D5phJOSw==
 
 case-sensitive-paths-webpack-plugin@^2.4.0:
   version "2.4.0"
