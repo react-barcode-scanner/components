@@ -1,7 +1,7 @@
 /*!
- * @undecaf/barcode-detector-polyfill v0.9.21
+ * @undecaf/barcode-detector-polyfill v0.9.13
  * A WebAssembly polyfill for the Barcode Detection API
- * Built 2024-07-30T19:20:44.113Z
+ * Built 2022-09-15T07:57:08.789Z
  * (c) 2021-present Ferdinand Kasper <fkasper@modus-operandi.at>
  * Released under the MIT license.
  * 
