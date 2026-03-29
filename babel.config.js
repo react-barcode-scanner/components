@@ -1,19 +1,6 @@
-// This babel config is required for Storybook to parse our stories as TypeScript.
-// Read more: https://github.com/storybookjs/storybook/issues/22357
-
+// Babel config for Storybook with Vite
+// Vite handles JSX/TypeScript transformation natively, but Storybook's react-docgen plugin may need this
 module.exports = {
-    sourceType: 'unambiguous',
-    presets: [
-        [
-            '@babel/preset-env',
-            {
-                targets: {
-                    chrome: 130,
-                },
-            },
-        ],
-        '@babel/preset-typescript',
-        '@babel/preset-react',
-    ],
+    presets: [],
     plugins: [],
 };
