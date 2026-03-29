@@ -358,12 +358,13 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@react-barcode-scanner/hooks@0.0.73":
-  version "0.0.73"
-  resolved "https://registry.yarnpkg.com/@react-barcode-scanner/hooks/-/hooks-0.0.73.tgz#afd22b5fa1760d945f4634e98845ed9e92a0cf5b"
-  integrity sha512-TCBEbrzja596QTOeeo2y7JbUMyjyeEhUb0NtAFs31jntRyAzh7+aMk7KbeaampmnAYcjuvv6yMrh2xgHLg6mtw==
+"@react-barcode-scanner/hooks@0.0.74":
+  version "0.0.74"
+  resolved "https://registry.yarnpkg.com/@react-barcode-scanner/hooks/-/hooks-0.0.74.tgz#720599d46eb2fad735eb9391f36a4f293e8e6d21"
+  integrity sha512-uOvL8D7ceGcm+2h2lkM/RaIeV0leBsx6o0l8pRXRKf62c554v4bPvEKjQU0+K35KprcjqjIr/GWrKoOU145Byw==
   dependencies:
     "@undecaf/barcode-detector-polyfill" "0.9.23"
+    "@undecaf/zbar-wasm" "0.11.0"
 
 "@rollup/plugin-commonjs@28.0.7":
   version "28.0.7"
@@ -707,6 +708,11 @@
   integrity sha512-qVr7jSUbE5a30X9dByDym2NzsqyH+MFwyFiu4QSHDQMLCImTJj/et7pEcOtGqlL4UB5J6J3d0hK4/5d4MMowYA==
   dependencies:
     "@undecaf/zbar-wasm" "^0.9.16"
+
+"@undecaf/zbar-wasm@0.11.0":
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/@undecaf/zbar-wasm/-/zbar-wasm-0.11.0.tgz#dd78278388e45f13a26ce05347fcb7571a14f3e1"
+  integrity sha512-z2UZ+Uc50+qyE+HbU+Obdk/E5ecB7xYiu0i99bHQ9VlZVH0JMmE/5mJQa16Cutvwt80C9OZl8jEVayf5s5Azow==
 
 "@undecaf/zbar-wasm@^0.9.16":
   version "0.9.16"

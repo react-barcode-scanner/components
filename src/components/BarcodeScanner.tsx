@@ -66,7 +66,6 @@ export const BarcodeScanner = (props: BarcodeScannerProps) => {
         '--video-blur': `${blur}px`,
     } as CSSProperties),
     [
-        containerRef.current,
         scanLine,
         videoBorder,
         videoWidth,
@@ -87,6 +86,9 @@ export const BarcodeScanner = (props: BarcodeScannerProps) => {
         zoom,
     });
 
+    const canvasElementRef = canvasRef as React.RefObject<HTMLCanvasElement>;
+    const webcamVideoElementRef = webcamVideoRef as React.RefObject<HTMLVideoElement>;
+
     useEffect(() => {
         if (!hasPermission || !containerRef.current) {
             return;
@@ -97,7 +99,7 @@ export const BarcodeScanner = (props: BarcodeScannerProps) => {
         if (animate) {
             containerRef.current?.style.setProperty('animation-play-state', 'running');
         }
-    }, [hasPermission, webcamScannerPreviewStyle, containerRef.current]);
+    }, [animate, hasPermission, webcamScannerPreviewStyle]);
 
     return <div ref={containerRef} className={`
             react-barcode-scanner-container
@@ -107,13 +109,13 @@ export const BarcodeScanner = (props: BarcodeScannerProps) => {
         {hasPermission ? (
             <>
                 <video
-                    ref={webcamVideoRef}
+                    ref={webcamVideoElementRef}
                     width={videoWidth}
                     height={videoHeight}
                     autoPlay={autoStart}
                     playsInline={true}
                 />
-                <canvas ref={canvasRef} width={canvasWidth} height={canvasHeight} />
+                <canvas ref={canvasElementRef} width={canvasWidth} height={canvasHeight} />
                 {scanLine && <div className={'scanline'}>-</div>}
             </>
         ) : waitElement}

@@ -53,7 +53,7 @@
 }
 
 @property --video-animation-state {
-    syntax: "<*>";
+    syntax: "*";
     inherits: false;
     initial-value: paused;
 }
