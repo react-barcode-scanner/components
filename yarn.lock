@@ -610,10 +610,10 @@
   resolved "https://registry.yarnpkg.com/@oxc-resolver/binding-win32-x64-msvc/-/binding-win32-x64-msvc-11.20.0.tgz#56d62047fa2ae7c2695bc901ff16303c8b6429c7"
   integrity sha512-Wb14jWEW8huH6It9F6sXd9vrYmIS7pMrgkU6sxpLxkP+9z+wRgs71hUEhRpcn8FOXAFa27FVWfY2tRpbfTzfLw==
 
-"@react-barcode-scanner/hooks@0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@react-barcode-scanner/hooks/-/hooks-0.1.1.tgz#a07ff93701f675bceea510a1b5126bde5a6993d8"
-  integrity sha512-GEBjCl0zWtAy1vpsqBGf/X4uj9vGNziVxZ1Y/xUWL3eDJl4jZ7+pIeY8z02QZVhSd2o2s0rqYAZjQo+o2MFB0g==
+"@react-barcode-scanner/hooks@0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@react-barcode-scanner/hooks/-/hooks-0.2.0.tgz#39f4a8f45d2cb3c482645e286f67e0272fb79ed8"
+  integrity sha512-dITCK+iP+FTTZF0WpWFdCC6fZUVH2PL5NhUypoEANDb3jCE3gpjlwnhA2nyMY6VQqHUBt/uQYwwumQ91FODK/Q==
   dependencies:
     "@undecaf/barcode-detector-polyfill" "0.9.23"
     "@undecaf/zbar-wasm" "0.11.0"
